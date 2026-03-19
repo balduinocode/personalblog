@@ -1,14 +1,46 @@
 import withMDX from '@next/mdx'
 import { NextConfig } from 'next'
+import path from 'node:path'
 
 export default withMDX()({
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  turbopack: {},
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
   redirects: async () => [
     {
       source: '/posts/:slug',
-      destination: '/thoughts/:slug',
+      destination: '/notas/:slug',
       permanent: false,
+    },
+    {
+      source: '/thoughts',
+      destination: '/notas',
+      permanent: true,
+    },
+    {
+      source: '/thoughts/:slug',
+      destination: '/notas/:slug',
+      permanent: true,
+    },
+    {
+      source: '/projects',
+      destination: '/projetos',
+      permanent: true,
+    },
+  ],
+  rewrites: async () => [
+    {
+      source: '/notas',
+      destination: '/thoughts',
+    },
+    {
+      source: '/notas/:slug',
+      destination: '/thoughts/:slug',
+    },
+    {
+      source: '/projetos',
+      destination: '/projects',
     },
   ],
   experimental: {
