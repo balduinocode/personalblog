@@ -10,17 +10,27 @@ export default withMDX()({
   redirects: async () => [
     {
       source: '/posts/:slug',
-      destination: '/notas/:slug',
+      destination: '/escritos/:slug',
       permanent: false,
     },
     {
       source: '/thoughts',
-      destination: '/notas',
+      destination: '/escritos',
       permanent: true,
     },
     {
       source: '/thoughts/:slug',
-      destination: '/notas/:slug',
+      destination: '/escritos/:slug',
+      permanent: true,
+    },
+    {
+      source: '/notas',
+      destination: '/escritos',
+      permanent: true,
+    },
+    {
+      source: '/notas/:slug',
+      destination: '/escritos/:slug',
       permanent: true,
     },
     {
@@ -31,11 +41,11 @@ export default withMDX()({
   ],
   rewrites: async () => [
     {
-      source: '/notas',
+      source: '/escritos',
       destination: '/thoughts',
     },
     {
-      source: '/notas/:slug',
+      source: '/escritos/:slug',
       destination: '/thoughts/:slug',
     },
     {

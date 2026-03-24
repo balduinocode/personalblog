@@ -18,12 +18,11 @@ export default async function Page() {
     .sort((a, b) => a.localeCompare(b))
 
   return (
-    <section>
+    <section className='drawings-gallery-section'>
       <h1 className='font-semibold mb-7 text-rurikon-600 text-balance'>
         Desenhos
       </h1>
-      <p className='mt-7'>Estudos e desenhos reunidos em uma galeria simples.</p>
-      <div className='mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+      <div className='mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
         {drawings.map((name) => (
           <figure
             key={name}

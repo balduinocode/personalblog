@@ -328,6 +328,23 @@ article img[src$='.svg'] {
   filter: invert(1) brightness(1.06);
 }
 
+.drawings-gallery-section {
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .drawings-gallery-section {
+    width: min(1000px, calc(100vw - 15rem));
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .drawings-gallery-section {
+    width: min(1240px, calc(100vw - 18rem));
+  }
+}
+
 .dot-leaders {
   text-align: end;
   height: 1em;
