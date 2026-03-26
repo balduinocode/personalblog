@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   maximumScale: 1,
   colorScheme: 'light dark',
-  themeColor: '#fcfcfc',
+  themeColor: '#f2efe9',
 }
 
 export default function RootLayout({
@@ -58,14 +58,28 @@ export default function RootLayout({
           sans.variable,
           serif.variable,
           mono.variable,
+          'relative isolate',
           'w-full p-6 sm:p-10 md:p-14',
           'text-sm leading-6 sm:text-[15px] sm:leading-7 md:text-base md:leading-7',
           'text-rurikon-500',
           'antialiased',
         )}
       >
+        <div aria-hidden='true' className='sunny-backdrop fixed inset-0 -z-10 overflow-hidden pointer-events-none'>
+          <video
+            className='sunny-video'
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload='auto'
+          >
+            <source src='/media/leaves.mp4' type='video/mp4' />
+          </video>
+          <div className='sunny-overlay' />
+        </div>
         <div className='fixed sm:hidden h-6 sm:h-10 md:h-14 w-full top-0 left-0 z-30 pointer-events-none content-fade-out' />
-        <div className='flex flex-col mobile:flex-row'>
+        <div className='relative z-10 flex flex-col mobile:flex-row'>
           <Navbar />
           <main className='relative flex-1 max-w-2xl [contain:inline-size]'>
             <div className='menu-divider absolute w-full h-px opacity-50 bg-rurikon-border right-0 mobile:right-auto mobile:left-0 mobile:w-px mobile:h-full mobile:opacity-100' />
